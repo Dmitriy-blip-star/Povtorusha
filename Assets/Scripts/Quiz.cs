@@ -1,21 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
     public class Quiz : MonoBehaviour
     {
-        [SerializeField] private AnimalScript _animal;
+        [SerializeField] private PreAnimalQuiz _animal;
         [SerializeField] private GameObject _quizPanel;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private Image[] _animalSpriteButtons;
-        [SerializeField] private Sprite[] _currentAnimalSprites;
+        //[SerializeField] private Sprite[] _currentAnimalSprites;
+        private List<int> _selectedIndex = new List<int>();
         private int _iterations = 0;
         private void Start()
         {
-            _currentAnimalSprites = new Sprite[_animal.AnimalSprites.Length];
-            System.Array.Copy(_animal.AnimalSprites, _currentAnimalSprites, _animal.AnimalSprites.Length);
-
+            _selectedIndex.AddRange(_animal.SelectedIndex);
             StartQuiz();
         }
 
@@ -40,14 +40,22 @@ namespace Assets.Scripts
                 }
 
             }
+            _selectedIndex.AddRange(_animal.SelectedIndex);
 
         }
 
         int GetRandomIndex()
         {
-            int randomIndex = Random.Range(0, _animal.SelectedIndex.Length);
-            _currentAnimalSprites[_animal.SelectedIndex[randomIndex]] = null;
-            return randomIndex;
+            if (_selectedIndex.Count == 0)
+            {
+                Debug.LogWarning("Все индексы уже использованы!");
+                return -1; // Возвращаем -1, если все индексы использованы
+            }
+
+            int randomIndex = Random.Range(0, _selectedIndex.Count);
+            int selectedIndex = _selectedIndex[randomIndex];
+            _selectedIndex.RemoveAt(randomIndex); // Удаляем использованный индекс из списка
+            return selectedIndex;
         }
 
         public void SelectCard(AnimalQuizButton animalQuizButton)
