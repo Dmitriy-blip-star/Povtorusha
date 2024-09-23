@@ -49,10 +49,8 @@ namespace Assets.Scripts
                 return;
             }
 
-            // Получаем текущий индекс
             int currentIndex = _selectedIndex[_iterations];
 
-            // Воспроизводим звук для текущего индекса
             if (currentIndex >= 0 && currentIndex < _animal.AnimalAudios.Length)
             {
                 _audioSource.PlayOneShot(_animal.AnimalAudios[currentIndex]);
@@ -69,7 +67,6 @@ namespace Assets.Scripts
             {
                 if (i == randomCorrectButtonIndex)
                 {
-                    // Устанавливаем правильную картинку для правильной кнопки
                     if (currentIndex >= 0 && currentIndex < _animal.AnimalSprites.Length)
                     {
                         _animalSpriteButtons[i].sprite = _animal.AnimalSprites[currentIndex];

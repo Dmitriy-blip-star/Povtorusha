@@ -7,6 +7,8 @@ public class Menu : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] AudioClip clip;
     [SerializeField] GameObject menuPanel;
+    [SerializeField] GameObject settingPanel;
+    [SerializeField] GameObject selectLevelPanel;
 
     private void Start()
     {
@@ -32,6 +34,17 @@ public class Menu : MonoBehaviour
     public void SelectModPanelOn(GameObject panel)
     {
         panel.SetActive(true);
-        menuPanel.SetActive(false);
+        //menuPanel.SetActive(false);
+    }
+
+    public void SettingPanelOn()
+    {
+        settingPanel.SetActive(true);
+    }
+
+    public void SaveSettings()
+    {
+        settingPanel.SetActive(false);
+        Debug.Log("Дописать метод");
     }
 }
