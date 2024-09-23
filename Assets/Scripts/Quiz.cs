@@ -13,6 +13,16 @@ namespace Assets.Scripts
         private List<int> _selectedIndex = new();
         private int _iterations = 0;
 
+        [SerializeField] private Image _markerImage;
+        [SerializeField] private Sprite _wrongChoose;
+        [SerializeField] private Sprite _rightChoose;
+        [SerializeField] private GameObject _endOfGamePanel;
+
+        private int _rigthAnswer;
+        private int _wrongAnswer;
+
+        [SerializeField] private Text _resultsText;
+
         private void Start()
         {
             _selectedIndex = new List<int>(_animal.SelectedIndex);
@@ -45,7 +55,7 @@ namespace Assets.Scripts
             if (_iterations >= _selectedIndex.Count)
             {
                 Debug.LogWarning("Все карточки использованы. Игра завершена.");
-                // Логика завершения игры
+                CheckGameEnd();
                 return;
             }
 
@@ -96,6 +106,16 @@ namespace Assets.Scripts
             _iterations++;
         }
 
+        private void CheckGameEnd()
+        {
+            foreach(Image buttons in _animalSpriteButtons)
+            {
+                buttons.gameObject.SetActive(false);
+            }
+            _endOfGamePanel.SetActive(true);
+            _resultsText.text = $"количество верных ответов {_rigthAnswer}\nколичество неправильных ответов {_wrongAnswer}";
+        }
+
         int GetRandomIncorrectIndex(int correctIndex)
         {
             List<int> incorrectIndices = new List<int>();
@@ -121,6 +141,10 @@ namespace Assets.Scripts
         private void TryAgain()
         {
             Debug.Log("Попробуйте снова!");
+
+            _markerImage.sprite = _wrongChoose;
+            _wrongAnswer++;
+
         }
 
         public void SelectCard(AnimalQuizButton animalQuizButton)
@@ -128,12 +152,19 @@ namespace Assets.Scripts
             if (animalQuizButton.isCorrect)
             {
                 animalQuizButton.isCorrect = false;
-                ChangeCards();
+                RightChosoe();
             }
             else
             {
                 TryAgain();
             }
+        }
+
+        private void RightChosoe()
+        {
+            ChangeCards();
+            _markerImage.sprite = _rightChoose;
+            _rigthAnswer++;
         }
     }
 }
