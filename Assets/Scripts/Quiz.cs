@@ -6,7 +6,7 @@ namespace Assets.Scripts
 {
     public class Quiz : MonoBehaviour
     {
-        [SerializeField] private PreAnimalQuiz _animal;
+        [SerializeField] private ChangeCardsPart _animal;
         [SerializeField] private GameObject _quizPanel;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private Image[] _animalSpriteButtons;
@@ -17,6 +17,8 @@ namespace Assets.Scripts
         [SerializeField] private Sprite _wrongChoose;
         [SerializeField] private Sprite _rightChoose;
         [SerializeField] private GameObject _endOfGamePanel;
+
+        [SerializeField] private AnimalQuizButton[] _animalQuizButtons;
 
         private int _rigthAnswer;
         private int _wrongAnswer;
@@ -42,7 +44,7 @@ namespace Assets.Scripts
         }
 
         private void Update()
-        {
+        {   // перезапуск сцены
             if (Input.GetKeyUp(KeyCode.R))
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene(
@@ -52,6 +54,8 @@ namespace Assets.Scripts
 
         void ChangeCards()
         {
+            RemoveMarkers();
+
             if (_iterations >= _selectedIndex.Count)
             {
                 Debug.LogWarning("Все карточки использованы. Игра завершена.");
@@ -106,6 +110,14 @@ namespace Assets.Scripts
             _iterations++;
         }
 
+        private void RemoveMarkers()
+        {
+            foreach(AnimalQuizButton animalQuizButton in _animalQuizButtons)
+            {
+                animalQuizButton.DeactivateMarker();
+            }
+        }
+
         private void CheckGameEnd()
         {
             foreach(Image buttons in _animalSpriteButtons)
@@ -138,13 +150,13 @@ namespace Assets.Scripts
             return incorrectIndices[randomIndex];
         }
 
-        private void TryAgain()
+        private void TryAgain(AnimalQuizButton animalQuizButton)
         {
             Debug.Log("Попробуйте снова!");
 
             _markerImage.sprite = _wrongChoose;
             _wrongAnswer++;
-
+            animalQuizButton.ActivateMarker();
         }
 
         public void SelectCard(AnimalQuizButton animalQuizButton)
@@ -156,7 +168,7 @@ namespace Assets.Scripts
             }
             else
             {
-                TryAgain();
+                TryAgain(animalQuizButton);
             }
         }
 

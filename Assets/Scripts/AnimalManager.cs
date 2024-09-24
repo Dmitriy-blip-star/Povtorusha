@@ -4,7 +4,7 @@ using UnityEngine;
 public class AnimalManager : MonoBehaviour
 {
     public SpriteRenderer[] animalSpriteButtons;
-    public PreAnimalQuiz animal; // Предполагается, что у вас есть класс Animal с массивами animalSprites и selectedIndex
+    public ChangeCardsPart animal; // Предполагается, что у вас есть класс Animal с массивами animalSprites и selectedIndex
     private List<int> availableIndices = new List<int>();
 
     void Start()

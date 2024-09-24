@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PreAnimalQuiz : MonoBehaviour
+public class ChangeCardsPart : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] public AudioClip[] AnimalAudios;
@@ -24,20 +24,20 @@ public class PreAnimalQuiz : MonoBehaviour
         {
             _selectedIndex.Add(i);
         }
+        StartGame();
     }
 
-    public void StartGame(GameObject startBatton)
+    public void StartGame()
     {
         NextCard();
-        startBatton.SetActive(false);
         _animalButton.SetActive(true);
     }
 
-    public void NextCard()
+    virtual public void NextCard()
     {
         if (_iterations == _amountOfSelectingCards)
         {
-            StartQuiz();
+            EndOfChangeCards();
         }
         else
         {
@@ -49,7 +49,7 @@ public class PreAnimalQuiz : MonoBehaviour
         }
     }
 
-    private void StartQuiz()
+    private void EndOfChangeCards()
     {
         _nextCardPanel.SetActive(false);
         _quizPanel.SetActive(true);
