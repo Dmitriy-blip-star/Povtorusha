@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 1c4a6537609aa2d4ca414629708661bd
   - enabled: 1
-    path: Assets/Scenes/Animal.unity
+    path: Assets/Scenes/RiddleAnimal.unity
     guid: 3b3315894ac38e648a0b7e51a116de4e
+  - enabled: 1
+    path: Assets/Scenes/ChangeAnimalCard.unity
+    guid: 42ad7b6e621cc6f4095ac7b092da0dfb
   m_configObjects: {}

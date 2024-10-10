@@ -1,30 +1,37 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangeCardsPart : MonoBehaviour
+public class CardChanger : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] public AudioClip[] AnimalAudios;
     private List<int> _selectedIndex = new List<int>();
-
     [SerializeField] private Image _animalSpriteButton;
     [SerializeField] private GameObject _animalButton;
     [SerializeField] public Sprite[] AnimalSprites;
-    [SerializeField] private GameObject _quizPanel;
-    [SerializeField] private GameObject _nextCardPanel;
-    [SerializeField] private int _amountOfSelectingCards;
     private int _randomCurentObjIndex = 0;
-    //public int[] SelectedIndex = new int[5];
     public List<int> SelectedIndex = new List<int>();
     private int _iterations = 0;
+
+    [SerializeField] protected int _amountOfSelectingCards;
+
     private void Start()
+    {
+        if (_amountOfSelectingCards == 0)
+        {
+            _amountOfSelectingCards = AnimalSprites.Length;
+        }
+        InitializeSelectedIndexes();
+        StartGame();
+    }
+
+    private void InitializeSelectedIndexes()
     {
         for (int i = 0; i < AnimalAudios.Length; i++)
         {
             _selectedIndex.Add(i);
         }
-        StartGame();
     }
 
     public void StartGame()
@@ -37,7 +44,7 @@ public class ChangeCardsPart : MonoBehaviour
     {
         if (_iterations == _amountOfSelectingCards)
         {
-            EndOfChangeCards();
+            EndOfCards();
         }
         else
         {
@@ -49,17 +56,19 @@ public class ChangeCardsPart : MonoBehaviour
         }
     }
 
-    private void EndOfChangeCards()
+    protected virtual void EndOfCards()
     {
-        _nextCardPanel.SetActive(false);
-        _quizPanel.SetActive(true);
+        _iterations = 0; 
+        SelectedIndex.Clear();
+        InitializeSelectedIndexes();
+        NextCard();
     }
 
     int GetRandomIndex()
     {
         if (_selectedIndex.Count == 0)
         {
-            Debug.LogWarning("Âñå èíäåêñû óæå èñïîëüçîâàíû!");
+            Debug.LogWarning("Ð’ÑÐµ Ð¸Ð½Ð´ÐµÐºÑÑ‹ ÑƒÐ¶Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ñ‹!");
             return -1;
         }
 

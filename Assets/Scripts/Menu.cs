@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +9,18 @@ public class Menu : MonoBehaviour
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject settingPanel;
     [SerializeField] GameObject selectLevelPanel;
+
+    private void Awake()
+    {
+        CheckPanelStatus();
+    }
+
+    private void CheckPanelStatus()
+    {
+        menuPanel.SetActive(true);
+        settingPanel.SetActive(false);
+        selectLevelPanel.SetActive(false);
+    }
 
     private void Start()
     {
@@ -34,7 +46,6 @@ public class Menu : MonoBehaviour
     public void SelectModPanelOn(GameObject panel)
     {
         panel.SetActive(true);
-        //menuPanel.SetActive(false);
     }
 
     public void SettingPanelOn()

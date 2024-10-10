@@ -6,7 +6,7 @@ namespace Assets.Scripts
 {
     public class Quiz : MonoBehaviour
     {
-        [SerializeField] private ChangeCardsPart _animal;
+        [SerializeField] private PreQuizChangeCardsPart _animal;
         [SerializeField] private GameObject _quizPanel;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private Image[] _animalSpriteButtons;
