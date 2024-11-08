@@ -31,6 +31,7 @@ public class MemoryCardController : MonoBehaviour
                 Debug.Log("Match found!");
                 // Здесь можно добавить логику для обработки совпадения
                 canFlip = true; // Разрешить переворот карточек
+                GameManager.instance.WinCheck(); 
             }
             else
             {
@@ -44,7 +45,7 @@ public class MemoryCardController : MonoBehaviour
     }
     private IEnumerator FlipBack(MemoryCard card1, MemoryCard card2)
     {
-        yield return new WaitForSeconds(1); // Задержка перед переворотом обратно
+        yield return new WaitForSeconds(0.5f); // Задержка перед переворотом обратно
         card1.Unflip(); // Перевернуть первую карточку обратно
         card2.Unflip(); // Перевернуть вторую карточку обратно
         canFlip = true; // Разрешить переворот карточек

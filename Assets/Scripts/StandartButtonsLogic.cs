@@ -10,5 +10,10 @@ namespace Assets.Scripts
         {
             SceneManager.LoadScene("Menu");
         }
+
+        public void Restart()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
