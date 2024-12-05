@@ -127,7 +127,7 @@ namespace Assets.Scripts
                 buttons.gameObject.SetActive(false);
             }
             _endOfGamePanel.SetActive(true);
-            _resultsText.text = $"количество верных ответов {_rigthAnswer}\nколичество неправильных ответов {_wrongAnswer}";
+            //_resultsText.text = $"количество верных ответов {_rigthAnswer}\nколичество неправильных ответов {_wrongAnswer}";
         }
 
         int GetRandomIncorrectIndex(int correctIndex)

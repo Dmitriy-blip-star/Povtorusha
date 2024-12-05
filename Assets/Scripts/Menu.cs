@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip clip;
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject settingPanel;
@@ -21,12 +21,6 @@ public class Menu : MonoBehaviour
         settingPanel.SetActive(false);
         selectLevelPanel.SetActive(false);
     }
-
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-    }
-
     public void PointerEnter()
     {
         audioSource.PlayOneShot(clip);
