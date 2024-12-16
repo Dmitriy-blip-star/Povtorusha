@@ -15,5 +15,10 @@ namespace Assets.Scripts
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+        public void CloseSelectModPanel(GameObject selectModPanel)
+        {
+            selectModPanel.SetActive(false);    
+        }
     }
 }
