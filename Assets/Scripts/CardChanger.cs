@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CardChanger : MonoBehaviour
 {
+    [SerializeField] public float Delay = 3.5f;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] public AudioClip[] AnimalAudios;
     private List<int> _selectedIndex = new List<int>();
@@ -14,7 +16,12 @@ public class CardChanger : MonoBehaviour
     public List<int> SelectedIndex = new List<int>();
     private int _iterations = 0;
 
+    private bool _canPressed = true;
+
     [SerializeField] protected int _amountOfSelectingCards;
+
+    [SerializeField] public GameObject QuizPanel;
+    [SerializeField] public GameObject NextCardPanel;
 
     private void Start()
     {
@@ -40,28 +47,45 @@ public class CardChanger : MonoBehaviour
         _animalButton.SetActive(true);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            NextCard();
+        }
+    }
+
     virtual public void NextCard()
     {
-        if (_iterations == _amountOfSelectingCards)
+        if(_canPressed)
         {
-            EndOfCards();
+            _canPressed = false;
+            if (_iterations == _amountOfSelectingCards)
+            {
+                EndOfCards();
+            }
+            else
+            {
+                StartCoroutine(DelayBeforeNextCard());
+                _randomCurentObjIndex = GetRandomIndex();
+                SelectedIndex.Add(_randomCurentObjIndex);
+                _iterations++;
+                _audioSource.PlayOneShot(AnimalAudios[_randomCurentObjIndex]);
+                _animalSpriteButton.sprite = AnimalSprites[_randomCurentObjIndex];
+            }
         }
-        else
-        {
-            _randomCurentObjIndex = GetRandomIndex();
-            SelectedIndex.Add(_randomCurentObjIndex);
-            _iterations++;
-            _audioSource.PlayOneShot(AnimalAudios[_randomCurentObjIndex]);
-            _animalSpriteButton.sprite = AnimalSprites[_randomCurentObjIndex];
-        }
+    }
+
+    IEnumerator DelayBeforeNextCard()
+    {
+        yield return new WaitForSeconds(Delay);
+        _canPressed = true;
     }
 
     protected virtual void EndOfCards()
     {
-        _iterations = 0; 
-        SelectedIndex.Clear();
-        InitializeSelectedIndexes();
-        NextCard();
+        NextCardPanel.SetActive(false);
+        QuizPanel.SetActive(true);
     }
 
     int GetRandomIndex()

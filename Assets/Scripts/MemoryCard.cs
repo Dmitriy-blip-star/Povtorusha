@@ -6,6 +6,7 @@ public class MemoryCard : MonoBehaviour
     private Image image; // Компонент Image для отображения спрайта
     private Sprite backSprite;
     public bool IsFlipped { get; private set; } // Свойство для отслеживания состояния карточки
+    [SerializeField] public AudioClip AudioClip;
     private void Awake()
     {
         image = GetComponent<Image>();
@@ -18,6 +19,7 @@ public class MemoryCard : MonoBehaviour
         if (IsFlipped) return; // Игнорировать, если карточка уже перевернута
         image.sprite = frontSprite; // Показать лицевую сторону
         IsFlipped = true; // Установить состояние перевернутой карточки
+
     }
     // Метод для сравнения карточек
     public bool CompareTo(MemoryCard otherCard)

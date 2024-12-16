@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 70bfeb00d934f1941aac4d7be8a48f1b, type: 3}
+  AudioClip: {fileID: 8300000, guid: 88058dc555e1887419040860b2391570, type: 3}
 --- !u!1 &92016993
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: a5abf733b3ee90648aab39587b5b6445, type: 3}
+  AudioClip: {fileID: 8300000, guid: d2ea47908d6702349a06d3c3a74ddffe, type: 3}
 --- !u!1001 &336324626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -636,6 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 70bfeb00d934f1941aac4d7be8a48f1b, type: 3}
+  AudioClip: {fileID: 8300000, guid: 88058dc555e1887419040860b2391570, type: 3}
 --- !u!1001 &385093543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -783,6 +786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: f2e5d4a872a182840bbba07c5f2daf52, type: 3}
+  AudioClip: {fileID: 8300000, guid: 5de3e475ca5038947a868722fbead0ce, type: 3}
 --- !u!1 &586791254
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,6 +991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 64a652ae7098d2348a3d00bc734bc6c6, type: 3}
+  AudioClip: {fileID: 8300000, guid: 8e08c529b61c6b8438a96c3ab34e4557, type: 3}
 --- !u!1 &928388957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,6 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 908109f0cf076ff4c965bfe00b34479d, type: 3}
+  AudioClip: {fileID: 8300000, guid: 89271dc91c672ab4ba9e23a080a5b155, type: 3}
 --- !u!1001 &1091961600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1373,6 +1379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: f2e5d4a872a182840bbba07c5f2daf52, type: 3}
+  AudioClip: {fileID: 8300000, guid: 5de3e475ca5038947a868722fbead0ce, type: 3}
 --- !u!1 &1100432080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 655677737334982179, guid: f5de190397ce15f45988b47b86f5689f, type: 3}
@@ -1770,6 +1777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 908109f0cf076ff4c965bfe00b34479d, type: 3}
+  AudioClip: {fileID: 8300000, guid: 89271dc91c672ab4ba9e23a080a5b155, type: 3}
 --- !u!1001 &1875056706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1917,6 +1925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 64a652ae7098d2348a3d00bc734bc6c6, type: 3}
+  AudioClip: {fileID: 8300000, guid: 8e08c529b61c6b8438a96c3ab34e4557, type: 3}
 --- !u!1001 &1961777698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2064,6 +2073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 4589072a245d53943bced2e3562622fa, type: 3}
+  AudioClip: {fileID: 8300000, guid: 675abd645255d254e837d3e8711218ae, type: 3}
 --- !u!1 &1962294588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,7 +2103,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 26efc804200379f419591c7b92b9e1b9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.062
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2237,6 +2247,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1c19f01fa29a343a5f5e6bb0a64c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 1203200349}
+  loseAudioClips:
+  - {fileID: 8300000, guid: 3e998e1164dd5fd4fa451fef23b85a39, type: 3}
+  - {fileID: 8300000, guid: b05c27d6f8cbd7047aa95165974a1f3e, type: 3}
+  winAudioClips:
+  - {fileID: 8300000, guid: 512f9cd83d20db34b9db136dbca032d3, type: 3}
+  - {fileID: 8300000, guid: 687035135adba6a479865fd8ffa71545, type: 3}
+  playProbability: 0.393
 --- !u!114 &2045043035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2410,6 +2428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: a5abf733b3ee90648aab39587b5b6445, type: 3}
+  AudioClip: {fileID: 8300000, guid: d2ea47908d6702349a06d3c3a74ddffe, type: 3}
 --- !u!1 &2123751541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,6 +2793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frontSprite: {fileID: 21300000, guid: 4589072a245d53943bced2e3562622fa, type: 3}
+  AudioClip: {fileID: 8300000, guid: 69c2d5adf37aa55478c75e9b12be75e9, type: 3}
 --- !u!1001 &7567733696432168468
 PrefabInstance:
   m_ObjectHideFlags: 0

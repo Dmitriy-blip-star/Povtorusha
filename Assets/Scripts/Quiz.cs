@@ -8,7 +8,7 @@ namespace Assets.Scripts
 {
     public class Quiz : MonoBehaviour
     {
-        [SerializeField] private PreQuizChangeCardsPart _animal;
+        [SerializeField] private CardChanger _animal;
         [SerializeField] private GameObject _quizPanel;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private Image[] _animalSpriteButtons;
@@ -25,7 +25,9 @@ namespace Assets.Scripts
         private int _rigthAnswer;
         private int _wrongAnswer;
 
-        [SerializeField] private Text _resultsText;
+        [SerializeField] private Image[] stars;
+        [SerializeField] private ParticleSystem[] starsEffect;
+        private bool _canSelect;
 
         private void Start()
         {
@@ -57,6 +59,8 @@ namespace Assets.Scripts
         void ChangeCards()
         {
             RemoveMarkers();
+
+            StartCoroutine(Delay());
 
             if (_iterations >= _selectedIndex.Count)
             {
@@ -127,7 +131,6 @@ namespace Assets.Scripts
                 buttons.gameObject.SetActive(false);
             }
             _endOfGamePanel.SetActive(true);
-            //_resultsText.text = $"количество верных ответов {_rigthAnswer}\nколичество неправильных ответов {_wrongAnswer}";
         }
 
         int GetRandomIncorrectIndex(int correctIndex)
@@ -163,22 +166,36 @@ namespace Assets.Scripts
 
         public void SelectCard(AnimalQuizButton animalQuizButton)
         {
-            if (animalQuizButton.isCorrect)
+            if (_canSelect)
             {
-                animalQuizButton.isCorrect = false;
-                RightChosoe();
-            }
-            else
-            {
-                TryAgain(animalQuizButton);
+                if (animalQuizButton.isCorrect)
+                {
+                    animalQuizButton.isCorrect = false;
+                    _canSelect = false;
+                    RightChosoe();
+                }
+                else
+                {
+                    TryAgain(animalQuizButton);
+                }
             }
         }
 
         private void RightChosoe()
         {
-            ChangeCards();
+            
             _markerImage.sprite = _rightChoose;
+            stars[_rigthAnswer].color = Color.white;
+            starsEffect[_rigthAnswer].Play();
             _rigthAnswer++;
+            
+            ChangeCards(); 
+        }
+
+        IEnumerator Delay()
+        {
+            yield return new WaitForSeconds(_animal.Delay);
+            _canSelect = true;
         }
     }
 }
