@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20f04d275308cb41b926f3021959845, type: 3}
+  m_Name: Donkey
+  m_EditorClassIdentifier: 
+  Audio: {fileID: 8300000, guid: c8a9b060c444c3a41a63761b11995df4, type: 3}
+  Sprite: {fileID: 21300000, guid: f5e384539b5dbe744b795bb3ef6e7a5c, type: 3}
+  BackSprite: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}

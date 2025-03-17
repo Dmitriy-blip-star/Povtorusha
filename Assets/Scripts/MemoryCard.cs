@@ -1,35 +1,42 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+
 public class MemoryCard : MonoBehaviour
 {
-    [SerializeField] private Sprite frontSprite; // Спрайт лицевой стороны карточки
+    [SerializeField] public AnimalCardSO Card;
+
     private Image image; // Компонент Image для отображения спрайта
-    private Sprite backSprite;
-    public bool IsFlipped { get; private set; } // Свойство для отслеживания состояния карточки
-    [SerializeField] public AudioClip AudioClip;
+    private bool isFlipped = false; // Состояние переворота карточки, теперь хранится в самом объекте
+
     private void Awake()
     {
         image = GetComponent<Image>();
-        backSprite = image.sprite;
-        
     }
+
     // Метод для переворота карточки
     public void Flip()
     {
-        if (IsFlipped) return; // Игнорировать, если карточка уже перевернута
-        image.sprite = frontSprite; // Показать лицевую сторону
-        IsFlipped = true; // Установить состояние перевернутой карточки
-
+        if (isFlipped) return; // Игнорировать, если карточка уже перевернута
+        image.sprite = Card.Sprite; // Показать лицевую сторону
+        isFlipped = true; // Установить состояние перевернутой карточки
     }
+
     // Метод для сравнения карточек
     public bool CompareTo(MemoryCard otherCard)
     {
-        return frontSprite == otherCard.frontSprite; // Сравнить спрайты
+        return Card.Sprite == otherCard.Card.Sprite; // Сравнить спрайты
     }
+
     // Метод для переворота карточки обратно
     public void Unflip()
     {
-        image.sprite = backSprite; // Скрыть спрайт (или использовать спрайт задней стороны)
-        IsFlipped = false; // Установить состояние карточки как не перевернутое
+        image.sprite = Card.BackSprite; // Скрыть спрайт (или использовать спрайт задней стороны)
+        isFlipped = false; // Установить состояние карточки как не перевернутое
+    }
+
+    // Свойство для доступа к состоянию переворота
+    public bool IsFlipped
+    {
+        get { return isFlipped; }
     }
 }

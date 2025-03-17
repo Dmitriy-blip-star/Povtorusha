@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (7)
@@ -269,8 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 70bfeb00d934f1941aac4d7be8a48f1b, type: 3}
-  AudioClip: {fileID: 8300000, guid: 88058dc555e1887419040860b2391570, type: 3}
+  Card: {fileID: 11400000, guid: 44be72d70fa55f143803fc66578ca1e2, type: 2}
 --- !u!1 &92016993
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +378,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (11)
@@ -489,8 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: a5abf733b3ee90648aab39587b5b6445, type: 3}
-  AudioClip: {fileID: 8300000, guid: d2ea47908d6702349a06d3c3a74ddffe, type: 3}
+  Card: {fileID: 11400000, guid: 4a950c69c64625a488f100fc58ddf171, type: 2}
 --- !u!1001 &336324626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -523,6 +529,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (6)
@@ -637,8 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 70bfeb00d934f1941aac4d7be8a48f1b, type: 3}
-  AudioClip: {fileID: 8300000, guid: 88058dc555e1887419040860b2391570, type: 3}
+  Card: {fileID: 11400000, guid: 44be72d70fa55f143803fc66578ca1e2, type: 2}
 --- !u!1001 &385093543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -671,6 +680,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (4)
@@ -785,8 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: f2e5d4a872a182840bbba07c5f2daf52, type: 3}
-  AudioClip: {fileID: 8300000, guid: 5de3e475ca5038947a868722fbead0ce, type: 3}
+  Card: {fileID: 11400000, guid: 91f12570e3ff6b344956500187cd3cad, type: 2}
 --- !u!1 &586791254
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +945,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (8)
@@ -1047,8 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 64a652ae7098d2348a3d00bc734bc6c6, type: 3}
-  AudioClip: {fileID: 8300000, guid: 8e08c529b61c6b8438a96c3ab34e4557, type: 3}
+  Card: {fileID: 11400000, guid: 2a520f623496a3f4b843da577dc5367a, type: 2}
 --- !u!1 &928388957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1188,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (2)
@@ -1287,8 +1306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 908109f0cf076ff4c965bfe00b34479d, type: 3}
-  AudioClip: {fileID: 8300000, guid: 89271dc91c672ab4ba9e23a080a5b155, type: 3}
+  Card: {fileID: 11400000, guid: 8255168d3ece07341a6946bfd2cb7dd8, type: 2}
 --- !u!1001 &1091961600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1321,6 +1339,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (5)
@@ -1435,8 +1457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: f2e5d4a872a182840bbba07c5f2daf52, type: 3}
-  AudioClip: {fileID: 8300000, guid: 5de3e475ca5038947a868722fbead0ce, type: 3}
+  Card: {fileID: 11400000, guid: 91f12570e3ff6b344956500187cd3cad, type: 2}
 --- !u!1 &1100432080 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 655677737334982179, guid: f5de190397ce15f45988b47b86f5689f, type: 3}
@@ -1719,6 +1740,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (3)
@@ -1833,8 +1858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 908109f0cf076ff4c965bfe00b34479d, type: 3}
-  AudioClip: {fileID: 8300000, guid: 89271dc91c672ab4ba9e23a080a5b155, type: 3}
+  Card: {fileID: 11400000, guid: 8255168d3ece07341a6946bfd2cb7dd8, type: 2}
 --- !u!1001 &1875056706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1867,6 +1891,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (9)
@@ -1981,8 +2009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 64a652ae7098d2348a3d00bc734bc6c6, type: 3}
-  AudioClip: {fileID: 8300000, guid: 8e08c529b61c6b8438a96c3ab34e4557, type: 3}
+  Card: {fileID: 11400000, guid: 2a520f623496a3f4b843da577dc5367a, type: 2}
 --- !u!1001 &1961777698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2015,6 +2042,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (1)
@@ -2129,8 +2160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 4589072a245d53943bced2e3562622fa, type: 3}
-  AudioClip: {fileID: 8300000, guid: 675abd645255d254e837d3e8711218ae, type: 3}
+  Card: {fileID: 11400000, guid: 3dd57c8a59006b44abffb09ca644647a, type: 2}
 --- !u!1 &1962294588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,7 +2334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1c19f01fa29a343a5f5e6bb0a64c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1203200349}
+  _audioSource: {fileID: 1203200349}
   loseAudioClips:
   - {fileID: 8300000, guid: 3e998e1164dd5fd4fa451fef23b85a39, type: 3}
   - {fileID: 8300000, guid: b05c27d6f8cbd7047aa95165974a1f3e, type: 3}
@@ -2370,6 +2400,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton (10)
@@ -2484,8 +2518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: a5abf733b3ee90648aab39587b5b6445, type: 3}
-  AudioClip: {fileID: 8300000, guid: d2ea47908d6702349a06d3c3a74ddffe, type: 3}
+  Card: {fileID: 11400000, guid: 4a950c69c64625a488f100fc58ddf171, type: 2}
 --- !u!1 &2123751541
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,10 +2720,50 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackToMenuBut
       objectReference: {fileID: 0}
+    - target: {fileID: 7632269444850065645, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 97.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632269444850065645, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 81.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632269444850065645, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632269444850065645, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632269444850065645, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632269444850065645, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 273
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632269444850065645, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -240
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632269444850065645, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632269444850065645, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 7906693340697245550, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1760983419}
+    - target: {fileID: 9069709597219561421, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 08eb95f5a7406fb4685bb9dadbe3dde8, type: 3}
     m_RemovedComponents:
     - {fileID: 6869407212564589069, guid: 9c2c9a58d519c7141b0921c8a49db25e, type: 3}
     m_RemovedGameObjects: []
@@ -2745,6 +2818,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: MemoryCard, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 7015982728556611245, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57886da02a0f09948ba943d940a9706b, type: 3}
     - target: {fileID: 7085063908342930362, guid: 65f44b8062e52944d90a31834f005eed, type: 3}
       propertyPath: m_Name
       value: MemoryButton
@@ -2849,8 +2926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a99137e35a4f0248837737389db96c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontSprite: {fileID: 21300000, guid: 4589072a245d53943bced2e3562622fa, type: 3}
-  AudioClip: {fileID: 8300000, guid: 69c2d5adf37aa55478c75e9b12be75e9, type: 3}
+  Card: {fileID: 11400000, guid: 3dd57c8a59006b44abffb09ca644647a, type: 2}
 --- !u!1001 &7567733696432168468
 PrefabInstance:
   m_ObjectHideFlags: 0

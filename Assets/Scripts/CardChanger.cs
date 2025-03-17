@@ -1,50 +1,46 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CardChanger : MonoBehaviour
 {
-    [SerializeField] public float Delay = 3.5f;
     [SerializeField] private AudioSource _audioSource;
-    [SerializeField] public AudioClip[] AnimalAudios;
-    private List<int> _selectedIndex = new List<int>();
-    [SerializeField] private Image _animalSpriteButton;
-    [SerializeField] private GameObject _animalButton;
-    [SerializeField] public Sprite[] AnimalSprites;
+    public List<int> SelectableIndex = new List<int>();
+    private Image _animalSpriteButton;
+    [SerializeField] private Button _animalButton;
+    [SerializeField] private Button _startButton;
+
+    [SerializeField] private AllAnimalSO _animalsCardSO;
+
     private int _randomCurentObjIndex = 0;
-    public List<int> SelectedIndex = new List<int>();
     private int _iterations = 0;
 
-    private bool _canPressed = true;
+    [SerializeField] public static int AvailableNumberSelectedCards;
 
-    [SerializeField] protected int _amountOfSelectingCards;
-
-    [SerializeField] public GameObject QuizPanel;
-    [SerializeField] public GameObject NextCardPanel;
+    private void Awake()
+    {
+        _animalSpriteButton = _animalButton.GetComponent<Image>();
+    }
 
     private void Start()
     {
-        if (_amountOfSelectingCards == 0)
-        {
-            _amountOfSelectingCards = AnimalSprites.Length;
-        }
-        InitializeSelectedIndexes();
-        StartGame();
+        InitializeSelectableIndexes();
     }
 
-    private void InitializeSelectedIndexes()
+    private void InitializeSelectableIndexes()
     {
-        for (int i = 0; i < AnimalAudios.Length; i++)
-        {
-            _selectedIndex.Add(i);
-        }
+        AvailableNumberSelectedCards = _animalsCardSO.AnimalButtonsSO.Length;
+        SelectableIndex.Clear();
+
+        SelectableIndex.AddRange(Enumerable.Range(0, _animalsCardSO.AnimalButtonsSO.Length));
     }
 
     public void StartGame()
     {
         NextCard();
-        _animalButton.SetActive(true);
+        _startButton.gameObject.SetActive(false);
+        _animalButton.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -55,50 +51,51 @@ public class CardChanger : MonoBehaviour
         }
     }
 
-    virtual public void NextCard()
+    private void NextCard()
     {
-        if(_canPressed)
+        if (_iterations == AvailableNumberSelectedCards)
         {
-            _canPressed = false;
-            if (_iterations == _amountOfSelectingCards)
-            {
-                EndOfCards();
-            }
-            else
-            {
-                StartCoroutine(DelayBeforeNextCard());
-                _randomCurentObjIndex = GetRandomIndex();
-                SelectedIndex.Add(_randomCurentObjIndex);
-                _iterations++;
-                _audioSource.PlayOneShot(AnimalAudios[_randomCurentObjIndex]);
-                _animalSpriteButton.sprite = AnimalSprites[_randomCurentObjIndex];
-            }
+            EndOfCards();
+        }
+        else
+        {
+            _randomCurentObjIndex = GetRandomIndex();
+
+            PlayAudio(_animalsCardSO.AnimalButtonsSO[_randomCurentObjIndex].Audio);
+            _animalSpriteButton.sprite = _animalsCardSO.AnimalButtonsSO[_randomCurentObjIndex].Sprite;
+            _iterations++;
+
         }
     }
 
-    IEnumerator DelayBeforeNextCard()
+    private void PlayAudio(AudioClip currentAnimalAudio)
     {
-        yield return new WaitForSeconds(Delay);
-        _canPressed = true;
+        if (_audioSource.isPlaying)
+        {
+            _audioSource.Stop();
+        }
+        _audioSource.PlayOneShot(currentAnimalAudio);
     }
 
     protected virtual void EndOfCards()
     {
-        NextCardPanel.SetActive(false);
-        QuizPanel.SetActive(true);
+        _iterations = 0;
+        InitializeSelectableIndexes();
+        NextCard();
     }
 
     int GetRandomIndex()
     {
-        if (_selectedIndex.Count == 0)
+        if (SelectableIndex.Count == 0)
         {
             Debug.LogWarning("Все индексы уже использованы!");
             return -1;
         }
 
-        int randomIndex = Random.Range(0, _selectedIndex.Count);
-        int selectedIndex = _selectedIndex[randomIndex];
-        _selectedIndex.RemoveAt(randomIndex);
+        int randomIndex = Random.Range(0, SelectableIndex.Count);
+        int selectedIndex = SelectableIndex[randomIndex];
+        SelectableIndex.RemoveAt(randomIndex);
         return selectedIndex;
     }
 }
+

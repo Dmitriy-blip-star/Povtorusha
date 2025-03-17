@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
     public class Quiz : MonoBehaviour
     {
-        [SerializeField] private CardChanger _animal;
+        [SerializeField] private CardChangerNew _animal;
+        [SerializeField] private AllAnimalSO _allAnimalButtons;
         [SerializeField] private GameObject _quizPanel;
         [SerializeField] private AudioSource _audioSource;
         [SerializeField] private Image[] _animalSpriteButtons;
-        private List<int> _selectedIndex = new();
+        //private List<int> _selectedIndex = new();
         private int _iterations = 0;
+
+        //private int currentIndex;
 
         [SerializeField] private Image _markerImage;
         [SerializeField] private Sprite _wrongChoose;
@@ -27,17 +28,45 @@ namespace Assets.Scripts
 
         [SerializeField] private Image[] stars;
         [SerializeField] private ParticleSystem[] starsEffect;
-        private bool _canSelect;
+        private const int _numberOfResponses = 5;
 
         private void Start()
         {
-            _selectedIndex = new List<int>(_animal.SelectedIndex);
+            //_selectedIndex = new List<int>(_animal.SelectableIndex);
+
             StartQuiz();
+        }
+        public List<T> GetRandomItems<T>(List<T> list, int numberOfItems)
+        {
+            if (numberOfItems > list.Count)
+            {
+                Debug.LogError("Запрашиваемое количество элементов больше, чем в списке.");
+                return null;
+            }
+
+            List<T> selectedItems = new List<T>();
+            HashSet<int> selectedIndices = new HashSet<int>(); // Множество для хранения уникальных индексов
+
+            System.Random random = new System.Random();
+
+            while (selectedItems.Count < numberOfItems)
+            {
+                int randomIndex = random.Next(list.Count);
+
+                // Если индекс не был выбран ранее, добавляем его в список
+                if (!selectedIndices.Contains(randomIndex))
+                {
+                    selectedIndices.Add(randomIndex);
+                    selectedItems.Add(list[randomIndex]);
+                }
+            }
+
+            return selectedItems;
         }
 
         void StartQuiz()
         {
-            if (_selectedIndex.Count > 0)
+            if (CardChangerNew.AvailableNumberSelectedCards > 0)
             {
                 ChangeCards();
             }
@@ -58,22 +87,11 @@ namespace Assets.Scripts
 
         void ChangeCards()
         {
-            RemoveMarkers();
+            RemoveMarkers(); 
 
-            StartCoroutine(Delay());
-
-            if (_iterations >= _selectedIndex.Count)
+            if (_iterations >= 0 && _iterations < CardChangerNew.AvailableNumberSelectedCards)
             {
-                Debug.LogWarning("Все карточки использованы. Игра завершена.");
-                CheckGameEnd();
-                return;
-            }
-
-            int currentIndex = _selectedIndex[_iterations];
-
-            if (currentIndex >= 0 && currentIndex < _animal.AnimalAudios.Length)
-            {
-                _audioSource.PlayOneShot(_animal.AnimalAudios[currentIndex]);
+                PlayAudio();
             }
             else
             {
@@ -87,9 +105,9 @@ namespace Assets.Scripts
             {
                 if (i == randomCorrectButtonIndex)
                 {
-                    if (currentIndex >= 0 && currentIndex < _animal.AnimalSprites.Length)
+                    if (_iterations >= 0 && _iterations < CardChangerNew.AvailableNumberSelectedCards)
                     {
-                        _animalSpriteButtons[i].sprite = _animal.AnimalSprites[currentIndex];
+                        _animalSpriteButtons[i].sprite = _allAnimalButtons.AnimalButtonsSO[_iterations].Sprite;
                         _animalSpriteButtons[i].gameObject.GetComponent<AnimalQuizButton>().isCorrect = true;
                     }
                     else
@@ -100,10 +118,10 @@ namespace Assets.Scripts
                 }
                 else
                 {
-                    int randomIndex = GetRandomIncorrectIndex(currentIndex);
-                    if (randomIndex != -1 && randomIndex < _animal.AnimalSprites.Length)
+                    int randomIndex = GetRandomIncorrectIndex(_iterations);
+                    if (randomIndex != -1 && randomIndex < _allAnimalButtons.AnimalButtonsSO.Length)
                     {
-                        _animalSpriteButtons[i].sprite = _animal.AnimalSprites[randomIndex];
+                        _animalSpriteButtons[i].sprite = _allAnimalButtons.AnimalButtonsSO[randomIndex].Sprite;
                         _animalSpriteButtons[i].gameObject.GetComponent<AnimalQuizButton>().isCorrect = false;
                     }
                     else
@@ -114,6 +132,15 @@ namespace Assets.Scripts
             }
 
             _iterations++;
+        }
+
+        private void PlayAudio()
+        {
+            if (_audioSource.isPlaying)
+            {
+                _audioSource.Stop();
+            }
+            _audioSource.PlayOneShot(_allAnimalButtons.AnimalButtonsSO[_iterations].Audio);
         }
 
         private void RemoveMarkers()
@@ -137,7 +164,7 @@ namespace Assets.Scripts
         {
             List<int> incorrectIndices = new List<int>();
 
-            for (int i = 0; i < _animal.AnimalSprites.Length; i++)
+            for (int i = 0; i < _allAnimalButtons.AnimalButtonsSO.Length; i++)
             {
                 if (i != correctIndex)
                 {
@@ -166,36 +193,33 @@ namespace Assets.Scripts
 
         public void SelectCard(AnimalQuizButton animalQuizButton)
         {
-            if (_canSelect)
+            if (animalQuizButton.isCorrect)
             {
-                if (animalQuizButton.isCorrect)
-                {
-                    animalQuizButton.isCorrect = false;
-                    _canSelect = false;
-                    RightChosoe();
-                }
-                else
-                {
-                    TryAgain(animalQuizButton);
-                }
+                animalQuizButton.isCorrect = false;
+                RightChosoe();
+            }
+            else
+            {
+                TryAgain(animalQuizButton);
             }
         }
 
         private void RightChosoe()
         {
-            
             _markerImage.sprite = _rightChoose;
             stars[_rigthAnswer].color = Color.white;
             starsEffect[_rigthAnswer].Play();
             _rigthAnswer++;
-            
-            ChangeCards(); 
-        }
 
-        IEnumerator Delay()
-        {
-            yield return new WaitForSeconds(_animal.Delay);
-            _canSelect = true;
-        }
+            if (_iterations >= _numberOfResponses)
+            {
+                Debug.LogWarning("Все карточки использованы. Игра завершена.");
+                CheckGameEnd();
+                return;
+            }
+
+            ChangeCards();
+        } 
+            
     }
 }

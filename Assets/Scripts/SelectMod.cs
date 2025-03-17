@@ -37,9 +37,7 @@ public class SelectMod : MonoBehaviour
 
     public void PointerEnter(Image button)
     {
-        startImageBut = button.sprite;
         audioSource.PlayOneShot(clip);
-        button.sprite = buttonSprites[button];
     }
     public void PointerExit(Image button)
     {
@@ -50,11 +48,16 @@ public class SelectMod : MonoBehaviour
     {
         StartCoroutine(LoadScene(sceneName));
     }
-
+    private void ChangeSpriteButtonEnter(Image button)
+    {
+        startImageBut = button.sprite;
+        button.sprite = buttonSprites[button];
+    }
     IEnumerator LoadScene(string sceneName)
     {
         effect.SetActive(true);
         yield return new WaitForSeconds(0.4f);
         SceneManager.LoadScene(sceneName);
     }
+
 }

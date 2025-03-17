@@ -52,19 +52,19 @@ public class MemoryGameController1 : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        if (firstFlippedCard.GetComponent<MemoryCard1>().CardImage == secondFlippedCard.GetComponent<MemoryCard1>().CardImage)
-        {
-            Destroy(firstFlippedCard);
-            Destroy(secondFlippedCard);
-        }
-        else
-        {
-            firstFlippedCard.GetComponent<MemoryCard1>().FlipBack();
-            secondFlippedCard.GetComponent<MemoryCard1>().FlipBack();
-        }
+        //if (firstFlippedCard.GetComponent<MemoryCardNew>().CardImage == secondFlippedCard.GetComponent<MemoryCardNew>().CardImage)
+        //{
+        //    Destroy(firstFlippedCard);
+        //    Destroy(secondFlippedCard);
+        //}
+        //else
+        //{
+        //    firstFlippedCard.GetComponent<MemoryCardNew>().FlipBack();
+        //    secondFlippedCard.GetComponent<MemoryCardNew>().FlipBack();
+        //}
 
-        firstFlippedCard = null;
-        secondFlippedCard = null;
-        canFlip = true;
+        //firstFlippedCard = null;
+        //secondFlippedCard = null;
+        //canFlip = true;
     }
 }
